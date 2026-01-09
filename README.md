@@ -34,6 +34,7 @@ Because sometimes you just need to embrace chaos and see what an AI will generat
 - Docker
 - A local Kubernetes cluster (minikube, kind, Docker Desktop, etc.)
 - kubectl
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) (if using the ingress)
 - A sense of humor
 
 ### Build the Container
