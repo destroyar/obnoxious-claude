@@ -1,0 +1,240 @@
+/* Main styles - Obnoxious but won't give you a seizure */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🔥</text></svg>'), auto;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff);
+    background-size: 600% 600%;
+    animation: rainbow-bg 8s ease infinite;
+    color: #fff;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes rainbow-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+.container {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    animation: wobble 3s ease-in-out infinite;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #ff00ff;
+    text-shadow: 
+        3px 3px 0 #00ffff,
+        -3px -3px 0 #ffff00,
+        6px 6px 0 #ff0000,
+        -6px -6px 0 #00ff00,
+        0 0 20px #ff00ff,
+        0 0 40px #00ffff,
+        0 0 60px #ffff00;
+    animation: color-cycle 4s ease infinite, bounce 2s ease-in-out infinite;
+}
+
+@keyframes color-cycle {
+    0%, 100% { color: #ff00ff; text-shadow: 3px 3px 0 #00ffff, -3px -3px 0 #ffff00, 0 0 30px #ff00ff; }
+    33% { color: #00ffff; text-shadow: 3px 3px 0 #ff00ff, -3px -3px 0 #00ff00, 0 0 30px #00ffff; }
+    66% { color: #ffff00; text-shadow: 3px 3px 0 #ff0000, -3px -3px 0 #00ffff, 0 0 30px #ffff00; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.tagline {
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: glow-text 3s ease-in-out infinite;
+}
+
+@keyframes glow-text {
+    0%, 100% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
+    50% { text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+}
+
+.cta-button {
+    margin-top: 2.5rem;
+    padding: 1.5rem 4rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #000;
+    background: linear-gradient(45deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff);
+    background-size: 400% 400%;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: rainbow-bg 3s ease infinite;
+    font-family: 'Comic Sans MS', cursive;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff, 0 0 120px #ffff00;
+}
+
+.cta-button:active {
+    transform: scale(0.95);
+}
+
+.glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 10px dotted #ff00ff;
+    animation: spin 10s linear infinite;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); border-color: #ff00ff; }
+    33% { border-color: #00ffff; }
+    66% { border-color: #ffff00; }
+    100% { transform: translate(-50%, -50%) rotate(360deg); border-color: #ff00ff; }
+}
+
+.marquee {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #ff0000, #ff00ff, #0000ff);
+    color: #ffff00;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+.emoji-rain {
+    position: fixed;
+    font-size: 3rem;
+    animation: fall 4s linear forwards;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.click-counter {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+.click-counter .count {
+    font-size: 3rem;
+    color: #ffff00;
+    text-shadow: 0 0 20px #ffff00;
+}
+
+.achievement {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 5px solid #ffff00;
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    text-align: center;
+    z-index: 10000;
+    animation: pop-in 0.5s ease forwards;
+    box-shadow: 0 0 60px rgba(255, 255, 0, 0.8);
+}
+
+@keyframes pop-in {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(-20deg); }
+    70% { transform: translate(-50%, -50%) scale(1.1) rotate(5deg); }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
+.achievement .emoji { font-size: 4rem; }
+.achievement h2 { color: #ffff00; margin: 0.5rem 0; }
+.achievement p { color: #fff; }

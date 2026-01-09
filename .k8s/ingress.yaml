@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coolsite
+  labels:
+    app: coolsite
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: coolsite.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: coolsite
+                port:
+                  number: 80
